@@ -1,26 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
+typedef long long ll;
 
+// const int MAXN = 2e5 + 500;
+// ll array[MAXN];
 
 void solve() {
   int n;
   cin >> n;
-  long array[n];
-
-  
+  vector<ll> arr(n);
 
   for(int i = 0; i < n; i++) {
-    cin >> array[i];
+    cin >> arr[i];
   }
 
-  int minMoves = 0;
-  for(int i = 0; i < sizeof(array); i++) {
-    long next = array[i+1];
-    long prev = array[i];
+  ll a = ll(0.8);
+
+  ll minMoves = 0;
+  for(int i = 0; i < n - 1; i++) {
+    ll prev = arr[i];
+    ll next = arr[i+1];
     if(prev > next) {
-      move = (next - prev) + 1;
-      if (minMoves < move) minMoves = move;
+      int move = prev - next;
+      minMoves += move;
+      arr[i+1] = prev;
     }
   }
 
