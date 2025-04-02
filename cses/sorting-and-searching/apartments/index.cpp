@@ -23,13 +23,23 @@ void solve() {
 
   int cases = 0;
   for(int elN : nSize) {
-    for(int elM : mSize) {
-      if(!(elN + k <= elM) || !(elN - k >= elM)) continue;
+    // for(int elM : mSize) {
+    for(int i = 0; i <= m; i++) {
+      int elM = mSize[i];
+
+      int small = elN - k;
+      int big = elN + k;
+      if(!(elM >= small && elM <= big)) continue;
+      // cout << elM << " M - Small " << small << " <--> " << big << " Big" << endl;
+      // cout << elN << "n - m" << elM << " <--> " << elN + k << " " << elM << endl;
+
+      mSize[i] = 0;
 
       cases++;
-      mSize
     }
   }
+
+  cout << cases << endl;
 }
 
 int main() {
