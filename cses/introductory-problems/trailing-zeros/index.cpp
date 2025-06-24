@@ -6,7 +6,6 @@ typedef long long ll;
 
 ll power(ll base, ll expo, ll MOD = 0) {
   ll res = 1;
-
   while(expo) {
     if(expo & 1LL) {
       res = MOD ? (res * base) % MOD : (res * base);
@@ -14,18 +13,14 @@ ll power(ll base, ll expo, ll MOD = 0) {
     base = MOD ? (base * base) % MOD : (base * base);
     expo >>= 1LL;
   }
-
   return res;
 }
 
-ll factorial(ll number) {
-  if(!number) return 1;
-
+ll factorial(ll number, ll MOD = 0) {
   ll res = 1;
-  for(int i = 1; i <= number; i++) {
-    res *= i;
+  for(int i = 2; i <= number; i++) {
+    res = MOD ? res * i % MOD : res * i;
   }
-
   return res;
 }
 
@@ -33,17 +28,13 @@ ll factorial(ll number) {
 void solve() {
   ll n = 0;
   cin >> n;
-  n = factorial(n);
 
-  int count = 0;
-  ll i = 10;
-  while(true) {
-    if (n % i) break;
-
-    count++;
-    i *= 10;
+  while(n % 2 && n % 5) {
+    if(n % 2 != 0) n /= 2;
+    else if (n % 5 != 0) n /= 5;
   }
-  cout << count << endl;
+
+  cout << n << endl;
 }
 
 int main() {
