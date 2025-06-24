@@ -4,6 +4,21 @@ using namespace std;
 typedef long long ll;
 
 
+ll power(ll base, ll expo, ll MOD = 0) {
+  ll res = 1;
+
+  while(expo) {
+    if(expo & 1LL) {
+      res = MOD ? (res * base) % MOD : (res * base);
+    }
+    base = MOD ? (base * base) % MOD : (base * base);
+    expo >>= 1LL;
+  }
+
+  return res;
+}
+
+
 void solve() {
 
 }
