@@ -4,14 +4,34 @@ using namespace std;
 typedef long long ll;
 
 
+// ll power2(ll base, ll expo) {
+//   if (expo == 0) return 1;
+
+//   ll res = power(base, expo/2);
+//   if (expo % 2) return res * res * base;
+//   else return res * res;
+// }
+
+ll power(ll base, ll expo, ll MOD = 0) {
+  ll res = 1;
+
+  while(expo) {
+    if(expo & 1LL) {
+      res = MOD ? (res * base) % MOD : (res * base);
+    }
+    base = MOD ? (base * base) % MOD : (base * base);
+    expo >>= 1LL;
+  }
+
+  return res;
+}
+
+
 void solve() {
-  ll n;
+  ll n = 0;
   cin >> n;
 
-  ll result = 1;
-  for (ll i = 1; i <= n; i++) result *= 2;
-
-  cout << result << endl;
+  cout << power(2, n, 1e9 + 7) << endl;
 }
 
 int main() {
