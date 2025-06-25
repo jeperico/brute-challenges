@@ -25,16 +25,17 @@ ll factorial(ll number, ll MOD = 0) {
 }
 
 
+int count(ll n) {
+  if(!n) return 0;
+  return (n / 5) + count(n / 5);
+}
+
+
 void solve() {
   ll n = 0;
   cin >> n;
 
-  while(n % 2 && n % 5) {
-    if(n % 2 != 0) n /= 2;
-    else if (n % 5 != 0) n /= 5;
-  }
-
-  cout << n << endl;
+  cout << count(n) << endl;
 }
 
 int main() {
