@@ -31,6 +31,10 @@ void solve() {
 
 int main() {
   ios_base::sync_with_stdio(0);cin.tie(0);
-  solve();
+  int TC = 1;
+  if(TC) {
+    cin >> TC;
+    while(TC--) solve();
+  } else solve();
   return 0;
 }
