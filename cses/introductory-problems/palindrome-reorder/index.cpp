@@ -26,37 +26,12 @@ ll factorial(ll number, ll MOD = 0) {
 
 
 void solve() {
-  ll a = 0, b = 0;
-  cin >> a >> b;
-
-  ll dif = abs(a - b);
-  if((a < dif) || (b < dif)) {
-    cout << "NO" << endl;
-    return;
-  }
   
-  ll som = a + b;
-  if(som % 3) {
-    cout << "NO" << endl;
-  } else {
-    cout << "YES" << endl;
-  }
-
-  // if(
-  //   (a * 2 - b % 3) ||
-  //   (a * 2 - b < 0) ||
-  //   (b * 2 - a % 3) ||
-  //   (b * 2 - a < 0) 
-  // ) {
-  //   cout << "NO" << endl;
-  // } else {
-  //   cout << "YES" << endl;
-  // }
 }
 
 int main() {
   ios_base::sync_with_stdio(0);cin.tie(0);
-  int TC = 1;
+  int TC = 0;
   if(TC) {
     cin >> TC;
     while(TC--) solve();
