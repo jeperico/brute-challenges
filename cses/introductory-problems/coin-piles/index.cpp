@@ -26,32 +26,29 @@ ll factorial(ll number, ll MOD = 0) {
 
 
 void solve() {
-  ll a = 2;
-  ll b = 1;
+  ll a = 0, b = 0;
+  cin >> a >> b;
 
-  while(a > 0 && b > 0) {
-    if(a == b) {
-      if(a % 3 == 0 && a % 8 == 0) {
-        cout << "YES" << endl;
-      } else {
-        cout << "NO" << endl;
-      }
-      // if(a % 3) return 1;
-      // else return 0;
-    }
-
-    if(a > b) {
-      a -= 2;
-      b -= 4;
-    } else {
-      a -= 2;
-      b -= 1;
-    }
+  ll dif = abs(a - b);
+  if((a < dif) || (b < dif)) {
+    cout << "NO" << endl;
+    return;
+  }
+  
+  ll som = a + b;
+  if(som % 3) {
+    cout << "NO" << endl;
+  } else {
+    cout << "YES" << endl;
   }
 }
 
 int main() {
   ios_base::sync_with_stdio(0);cin.tie(0);
-  solve();
+  int TC = 1;
+  if(TC) {
+    cin >> TC;
+    while(TC--) solve();
+  } else solve();
   return 0;
 }
