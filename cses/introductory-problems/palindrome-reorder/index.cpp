@@ -53,7 +53,7 @@ void solve() {
         word[i] = temp;
         i--;
         // cout << "NO = " << word << endl;
-        if(single == 2 || single == 1 && n % 2 == 0) {
+        if(single == 2 || (single == 1 && n % 2 == 0)) {
           cout << "NO SOLUTION" << endl;
           return;
         }
