@@ -26,25 +26,27 @@ ll factorial(ll number, ll MOD = 0) {
 
 
 void solve() {
-  // string word = "JJKKJSTFFKJST";
+  // Get the word to transform into a palindrome
   string word;
   cin >> word;
   int n = word.length();
 
-  // cout << "[" << word << "]" << endl;
+  // Count for the odds letters 
   int single = 0;
+
+  // Iterate for all left letters to replace in order
   for(int i = 0; i < n / 2; i++) {
-    // cout << "i - " << word[i] << endl;
+    // Iterate for the following letters able to switch
     for(int j = i + 1; j < n - i; j++) {
-      // cout << word[j] << endl;
       int last = n - i - 1;
+      // If found a pair, switch for the current last
       if(word[i] == word[j]) {
-        // cout << "CHANGED" << endl;
         char temp = word[last];
         word[last] = word[j];
         word[j] = temp;
         break;
       }
+      // On single letters change by the middle and try again
       if(j == last) {
         single++;
         int half = n / 2;
@@ -52,7 +54,7 @@ void solve() {
         word[half] = word[i];
         word[i] = temp;
         i--;
-        // cout << "NO = " << word << endl;
+        // If more odd letters than the nedded, NO RESULTS
         if(single == 2 || (single == 1 && n % 2 == 0)) {
           cout << "NO SOLUTION" << endl;
           return;
@@ -61,6 +63,7 @@ void solve() {
       }
     }
   }
+  // Print the right solution, if have it
   cout << word << endl;
 }
 
